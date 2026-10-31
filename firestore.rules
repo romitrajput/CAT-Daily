@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner() {
+      return signedIn() && exists(/databases/$(database)/documents/meta/owner)
+        && get(/databases/$(database)/documents/meta/owner).data.uid == request.auth.uid;
+    }
+
+    // leaderboard: everyone reads, each user writes only their own rows
+    match /users/{uid} {
+      allow read: if signedIn();
+      allow write: if signedIn() && request.auth.uid == uid;
+    }
+    match /daily/{date}/entries/{uid} {
+      allow read: if signedIn();
+      allow write: if signedIn() && request.auth.uid == uid;
+    }
+
+    // the first device to unlock admin claims ownership; nobody can change it afterwards
+    match /meta/owner {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+    }
+    // answer key, tag overrides, bank metadata: owner writes, everyone reads
+    match /meta/{doc} {
+      allow read: if signedIn();
+      allow write: if doc != 'owner' && isOwner();
+    }
+    match /bank/{id} {
+      allow read: if signedIn();
+      allow write: if isOwner();
+    }
+    match /bankGroups/{id} {
+      allow read: if signedIn();
+      allow write: if isOwner();
+    }
+  }
+}
