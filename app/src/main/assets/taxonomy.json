@@ -1,0 +1,261 @@
+{
+ "version": 1,
+ "VARC": {
+  "byDirections": [
+   {
+    "topic": "Para Jumbles",
+    "sub": "Sentence Ordering",
+    "re": "(proper(ly)? (order|sequenc)|coherent paragraph.*(sequence|order)|logically ordered|rearrange the (sentences|statements)|sequence of (four|five|six) numbers)"
+   },
+   {
+    "topic": "Odd Sentence Out",
+    "sub": "Odd One Out",
+    "re": "(odd one out|does not fit|odd sentence|not belong)"
+   },
+   {
+    "topic": "Para Summary",
+    "sub": "Summary",
+    "re": "(summar|essence of the passage|captures the essence)"
+   },
+   {
+    "topic": "Sentence Placement",
+    "sub": "Sentence Insertion",
+    "re": "(missing in the paragraph|sentence (that )?is missing|best fit|blank \\(option|indicated in the paragraph)"
+   }
+  ],
+  "defaultTopic": "Reading Comprehension",
+  "rcSub": [
+   {
+    "sub": "Strengthen / Weaken",
+    "re": "(weaken|strengthen|complement|undermine|support the|if true)"
+   },
+   {
+    "sub": "Central Idea / Title",
+    "re": "(main (idea|point|argument)|central (idea|theme)|primary purpose|best (title|summar|captures)|narrative of the passage|gist)"
+   },
+   {
+    "sub": "Tone & Author's View",
+    "re": "(tone|author.{0,25}(attitude|view|stance|position|agree|believe)|would the author)"
+   },
+   {
+    "sub": "Vocabulary & Purpose",
+    "re": "(meaning of|used in the sense|refers to|the word|the phrase|the term|purpose of|in order to|example)"
+   },
+   {
+    "sub": "Inference",
+    "re": "(infer|impl(y|ies|ied)|suggest|conclude|assume|deduce)"
+   },
+   {
+    "sub": "Specific Detail",
+    "re": ".*"
+   }
+  ]
+ },
+ "DILR": [
+  {
+   "topic": "Games & Tournaments",
+   "re": "(tournament|\\bmatch(es)?\\b|\\bround\\b|\\bteams?\\b|\\bwon\\b|\\blost\\b|\\bdraw|league|knock-?out|\\bgoals?\\b|\\bplayers?\\b|\\bgame\\b)",
+   "w": 1.0
+  },
+  {
+   "topic": "Seating & Arrangements",
+   "re": "(\\bseat(ed|s)?\\b|\\bsit(s|ting)?\\b|circular|\\brow\\b|facing|arranged|\\bfloors?\\b|apartment|\\bqueue\\b|\\bleft of\\b|\\bright of\\b|adjacent|neighbou?r)",
+   "w": 1.0
+  },
+  {
+   "topic": "Scheduling & Routes",
+   "re": "(schedul|\\bslots?\\b|\\bmeetings?\\b|\\bflights?\\b|\\btrains?\\b|\\broutes?\\b|\\broads?\\b|\\bcities\\b|\\bcity\\b|network|\\bpath\\b|\\bhours?\\b|departs?|arriv|\\bminutes\\b|timetable|\\bcalendar\\b)",
+   "w": 1.0
+  },
+  {
+   "topic": "Venn Diagrams & Sets",
+   "re": "(at least one of|\\bboth\\b|\\bonly\\b|venn|\\bsurvey|subscrib|exactly (one|two)|\\bnone of them\\b|respondents)",
+   "w": 0.7
+  },
+  {
+   "topic": "Tables & Charts (DI)",
+   "re": "(\\bchart\\b|\\bgraph\\b|\\btable\\b|percentage|\\brevenue|\\bsales\\b|production|\\bprofit|\\bexports?\\b|\\bimports?\\b|\\bshare\\b|\\bgrowth\\b|\\bcrore|\\blakh|\\bbillion|\\bmillion|\\bdata\\b)",
+   "w": 1.0
+  },
+  {
+   "topic": "Selection & Distribution",
+   "re": "(\\bselect(ed|ion)?\\b|committee|distribut|allot|assign|\\bgroups?\\b|\\bboxes?\\b|\\bbags?\\b|\\bcoins?\\b|\\bitems?\\b|\\bprojects?\\b|\\bcourses?\\b)",
+   "w": 0.8
+  },
+  {
+   "topic": "Grids, Cubes & Puzzles",
+   "re": "(\\bgrid\\b|\\bcells?\\b|\\bcubes?\\b|matrix|\\bsquares?\\b|\\bdigits?\\b|\\bcolou?r(ed|s)?\\b|\\btiles?\\b|\\bboard\\b|\\bpuzzle)",
+   "w": 1.0
+  },
+  {
+   "topic": "Scores, Ratings & Rankings",
+   "re": "(\\bscores?\\b|\\bmarks\\b|\\bratings?\\b|\\brank(s|ed|ing)?\\b|\\baverage\\b|\\bjudges?\\b|\\bpoints\\b|\\bvotes?\\b|\\bcandidates?\\b|\\bexam)",
+   "w": 0.9
+  }
+ ],
+ "QA": [
+  {
+   "topic": "Arithmetic",
+   "sub": "Time, Speed & Distance",
+   "re": "(\\bspeed|km\\/h|\\bkm\\b|kmph|\\btrain|\\bboat|\\bstream|\\brace\\b|\\bcar\\b|\\bcycl|\\bwalk|\\bmeet\\b|\\breaches?\\b|\\bstarts? from)",
+   "w": 1.2
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Time & Work",
+   "re": "(\\bwork(ers?)?\\b|\\bpipes?\\b|\\btank\\b|\\bcomplete (the|a) (job|task|work)|\\bjob\\b|efficien|\\bproject\\b|\\bcomplete[sd]?\\b|man-?days)",
+   "w": 1.2
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Profit, Loss & Discount",
+   "re": "(profit|\\bloss\\b|discount|cost price|selling price|marked price|\\bmarkup)",
+   "w": 1.4
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Interest (SI & CI)",
+   "re": "(interest|\\bcompound|\\bprincipal|per annum|invest|\\bdeposit|\\bloan)",
+   "w": 1.4
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Mixtures & Alligation",
+   "re": "(mixture|solution|\\balloy|\\bacid\\b|\\bmilk\\b|\\bwater\\b|concentration|\\bjuice)",
+   "w": 1.3
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Ratio, Proportion & Variation",
+   "re": "(\\bratio\\b|proportion|\\bvaries\\b|\\bvariation|\\bincomes?\\b|\\bpartners?|\\bshares?\\b)",
+   "w": 0.9
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Percentages",
+   "re": "(percent|%|\\bpopulation\\b|\\bincrease[sd]? by\\b|\\bdecrease[sd]? by\\b)",
+   "w": 0.5
+  },
+  {
+   "topic": "Arithmetic",
+   "sub": "Averages",
+   "re": "(\\baverage|\\bmean\\b|\\bmedian\\b|\\bmode\\b)",
+   "w": 1.0
+  },
+  {
+   "topic": "Algebra",
+   "sub": "Progressions & Series",
+   "re": "(progression|\\bA\\.?P\\.?\\b|\\bG\\.?P\\.?\\b|\\bterms?\\b|sequence|\\bseries\\b|\\bsum of (the )?first)",
+   "w": 1.1
+  },
+  {
+   "topic": "Algebra",
+   "sub": "Logarithms & Surds",
+   "re": "(\\blog|surd|√)",
+   "w": 1.6
+  },
+  {
+   "topic": "Algebra",
+   "sub": "Functions & Graphs",
+   "re": "(f\\s?\\(\\s?x\\s?\\)|\\bfunction|g\\s?\\(\\s?x|\\bmax\\s?\\(|\\bmin\\s?\\(|\\bgraph)",
+   "w": 1.4
+  },
+  {
+   "topic": "Algebra",
+   "sub": "Inequalities & Modulus",
+   "re": "(inequalit|\\|x|\\bmodulus|≥|≤|greater than or equal|less than or equal)",
+   "w": 1.2
+  },
+  {
+   "topic": "Algebra",
+   "sub": "Quadratic & Polynomial Equations",
+   "re": "(quadratic|\\broots?\\b|polynomial|x2|x\\^2|equations?\\b)",
+   "w": 1.0
+  },
+  {
+   "topic": "Algebra",
+   "sub": "Linear Equations",
+   "re": "(\\bx\\s?\\+\\s?y|\\bvalue of x\\b|\\bsolve\\b|linear)",
+   "w": 0.6
+  },
+  {
+   "topic": "Geometry & Mensuration",
+   "sub": "Triangles & Polygons",
+   "re": "(triang|polygon|hexagon|pentagon|\\bangle|\\bsides?\\b|isosceles|equilateral|hypotenuse|\\bmedian of)",
+   "w": 1.3
+  },
+  {
+   "topic": "Geometry & Mensuration",
+   "sub": "Circles",
+   "re": "(circle|\\bradius|\\bradii|\\bchord|tangent|\\barc\\b|semicirc|diameter)",
+   "w": 1.4
+  },
+  {
+   "topic": "Geometry & Mensuration",
+   "sub": "Quadrilaterals",
+   "re": "(rectangle|\\bsquare\\b|rhombus|trapez|parallelogram|quadrilateral)",
+   "w": 1.2
+  },
+  {
+   "topic": "Geometry & Mensuration",
+   "sub": "Coordinate Geometry",
+   "re": "(coordinate|\\bx-axis|\\by-axis|\\bpoints? \\(|\\blines? (y|x)\\s?=|\\bslope|\\(\\s?-?\\d+\\s?,\\s?-?\\d+\\s?\\))",
+   "w": 1.4
+  },
+  {
+   "topic": "Geometry & Mensuration",
+   "sub": "Mensuration (3D)",
+   "re": "(\\bvolume|\\bcone\\b|\\bcylind|\\bsphere|\\bcube\\b|\\bcuboid|\\bprism|\\bpyramid|surface area|hemisphere)",
+   "w": 1.5
+  },
+  {
+   "topic": "Number System",
+   "sub": "Remainders & Divisibility",
+   "re": "(remainder|divisib|divided by|\\bmod\\b)",
+   "w": 1.5
+  },
+  {
+   "topic": "Number System",
+   "sub": "Factors, HCF & LCM",
+   "re": "(factors?\\b|\\bdivisors?\\b|\\bHCF|\\bLCM|\\bgcd|\\bprime|\\bco-?prime)",
+   "w": 1.4
+  },
+  {
+   "topic": "Number System",
+   "sub": "Digits & Integers",
+   "re": "(\\bdigits?\\b|\\bintegers?\\b|natural numbers?|\\bunit'?s? (place|digit)|\\bbase \\d|\\bperfect square|\\bconsecutive)",
+   "w": 1.0
+  },
+  {
+   "topic": "Modern Maths",
+   "sub": "Permutations & Combinations",
+   "re": "(\\bways\\b|arrange|permutation|combination|\\bselect|\\bchoose|how many (different )?(numbers|words|groups|teams))",
+   "w": 1.3
+  },
+  {
+   "topic": "Modern Maths",
+   "sub": "Probability",
+   "re": "(probabilit|\\bdice\\b|\\bdie\\b|\\bcoins? (is|are) tossed|at random|randomly)",
+   "w": 1.6
+  },
+  {
+   "topic": "Modern Maths",
+   "sub": "Set Theory",
+   "re": "(\\bsets?\\b|venn|\\bstudents? (who )?(like|play|study)|\\bat least one of)",
+   "w": 1.0
+  }
+ ],
+ "difficulty": {
+  "split": {
+   "Easy": 0.35,
+   "Medium": 0.4,
+   "Hard": 0.25
+  },
+  "hardCues": "(maximum possible|minimum possible|how many (possible|different)|cannot be determined|must be true|could be true|NOT necessarily|all possible values|number of (possible|integer|ordered) )",
+  "exceptCues": "(EXCEPT|cannot be inferred|least likely|NOT)"
+ },
+ "QAFallback": {
+  "topic": "Algebra",
+  "sub": "Expressions & Equations"
+ }
+}

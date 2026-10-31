@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.CATDaily" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#FF1B1F3B</item>
+        <item name="android:windowBackground">#FFF7F7FB</item>
+    </style>
+</resources>
