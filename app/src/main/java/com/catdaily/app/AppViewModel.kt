@@ -36,6 +36,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     var plan by mutableStateOf<Map<Section, List<Question>>>(emptyMap()); private set
     var message by mutableStateOf<String?>(null)
 
+    /** Ordered question ids for "Next question" while practising from the Sections tab. */
+    var practiceQueue: List<String> = emptyList()
+
     init {
         progress.useFreeze(today)
         refreshPlan()

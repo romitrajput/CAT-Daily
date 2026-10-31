@@ -9,10 +9,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.MenuBook
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -31,10 +29,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.catdaily.app.ui.CatTheme
-import com.catdaily.app.ui.LeaderboardScreen
 import com.catdaily.app.ui.PracticeScreen
 import com.catdaily.app.ui.QuestionScreen
-import com.catdaily.app.ui.SettingsScreen
 import com.catdaily.app.ui.TodayScreen
 
 class MainActivity : ComponentActivity() {
@@ -67,8 +63,6 @@ fun AppRoot(vm: AppViewModel) {
     val tabs = listOf(
         Tab("today", "Today", Icons.Filled.LocalFireDepartment),
         Tab("practice", "Sections", Icons.Filled.MenuBook),
-        Tab("board", "Leaderboard", Icons.Filled.EmojiEvents),
-        Tab("settings", "Settings", Icons.Filled.Settings),
     )
     val entry by nav.currentBackStackEntryAsState()
     val route = entry?.destination?.route
@@ -89,8 +83,6 @@ fun AppRoot(vm: AppViewModel) {
         NavHost(nav, startDestination = "today", modifier = Modifier.padding(pad)) {
             composable("today") { TodayScreen(vm) { id -> nav.navigate("q/$id?daily=true") } }
             composable("practice") { PracticeScreen(vm) { id -> nav.navigate("q/$id?daily=false") } }
-            composable("board") { LeaderboardScreen(vm) }
-            composable("settings") { SettingsScreen(vm) }
             composable(
                 "q/{id}?daily={daily}",
                 arguments = listOf(

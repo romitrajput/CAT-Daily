@@ -18,14 +18,22 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.LocalFireDepartment
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -75,7 +83,12 @@ private fun StreakHeader(vm: AppViewModel) {
             .padding(20.dp)
     ) {
         Text(vm.today.format(DateTimeFormatter.ofPattern("EEEE, d MMM")), color = Color.White.copy(alpha = .7f), fontSize = 13.sp)
-        Text("Hi ${vm.displayName()}", color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+        var editing by remember { mutableStateOf(vm.progress.name.isBlank()) }
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { editing = true }) {
+            Text("Hi ${vm.displayName()}", color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Icon(Icons.Filled.Edit, "Edit name", tint = Color.White.copy(alpha = .6f), modifier = Modifier.padding(start = 8.dp).size(18.dp))
+        }
+        if (editing) NameDialog(vm.progress.name, onDismiss = { editing = false }) { vm.setName(it); editing = false }
         Spacer(Modifier.height(14.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Icons.Filled.LocalFireDepartment, null, tint = if (vm.streak > 0) Flame else Color.Gray, modifier = Modifier.size(44.dp))
@@ -146,4 +159,18 @@ private fun DailyRow(vm: AppViewModel, n: Int, q: Question, onClick: () -> Unit)
             }
         }
     }
+}
+
+@Composable
+private fun NameDialog(current: String, onDismiss: () -> Unit, onSave: (String) -> Unit) {
+    var name by remember { mutableStateOf(current) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Your name") },
+        text = {
+            OutlinedTextField(name, { name = it.take(24) }, singleLine = true, placeholder = { Text("e.g. Romit") })
+        },
+        confirmButton = { TextButton(onClick = { onSave(name.trim()) }, enabled = name.isNotBlank()) { Text("Save") } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Later") } }
+    )
 }

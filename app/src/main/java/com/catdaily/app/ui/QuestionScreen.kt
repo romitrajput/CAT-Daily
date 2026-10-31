@@ -82,7 +82,8 @@ fun QuestionScreen(vm: AppViewModel, id: String, daily: Boolean, onBack: () -> U
 
     LaunchedEffect(id, result) { while (result == null) { delay(1000); seconds++ } }
 
-    val nextId = if (daily) vm.planList.firstOrNull { it.id != id && vm.doneToday(it) == null }?.id else null
+    val nextId = if (daily) vm.planList.firstOrNull { it.id != id && vm.doneToday(it) == null }?.id
+    else vm.practiceQueue.let { l -> val i = l.indexOf(id); if (i >= 0 && i + 1 < l.size) l[i + 1] else null }
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         TopAppBar(

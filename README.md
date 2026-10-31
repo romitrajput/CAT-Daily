@@ -10,10 +10,9 @@ Daily CAT practice built from the actual CAT 2017–2025 papers. Every day each 
 | Mapping | Every question is tagged with **section → topic → sub-topic**, **year/slot**, **MCQ/TITA**, and **Easy/Medium/Hard**. The full map is in `docs/question_map.csv`. |
 | Display | Each question is cropped straight out of the original PDF page, so passages, DILR tables/charts, fractions and exponents look exactly as printed. Passage and DILR set text is shared across all the questions that use it. |
 | Today tab | 15 questions for the day, a streak bar (last 7 days), current and best streak, progress out of 15 |
-| Sections tab | VARC / DILR / QA → topics (with Easy/Medium/Hard counts) → questions. Filter by topic, year and difficulty, or search. |
-| Leaderboard | Today (score, then whether all 15 are done, then time taken) · Streak · All-time points |
-| Settings | Name, daily reminder time, your stats with your weakest topics, question-bank summary, **admin tools** |
-| Admin tools | **Add a question-paper PDF** (parsed and tagged on the phone with the same logic as the bundled papers), import an answer key CSV, edit any question's tags |
+| Sections tab | VARC / DILR / QA switcher with progress → overview, quick practice (Easy/Medium/Hard, untried only), topic cards → topic page with difficulty, status (not tried / attempted / wrong), year and sub-topic filters and a "Practice these" button that steps through the list with Next |
+| Name | Asked on first launch; tap "Hi <name>" on Today to change it |
+| Hidden for now | Leaderboard and Settings (admin PDF import, answer key) — the code is kept, the tabs are removed |
 
 ### Topics used
 - **VARC:** Reading Comprehension (sub-types: Inference, Central Idea, Strengthen/Weaken, Tone, Vocabulary & Purpose, Specific Detail), Para Jumbles, Para Summary, Odd Sentence Out, Sentence Placement
